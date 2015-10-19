@@ -24,7 +24,9 @@ public class ServiceOffreEmploi implements IServiceOffreEmploi {
 	@Override
 	public OffreEmploi addOffreEmploi(OffreEmploi offre) {
 		// TODO Auto-generated method stub
+		System.out.println("coucou");
 		return null;
+		
 	}
 
 	@Override
