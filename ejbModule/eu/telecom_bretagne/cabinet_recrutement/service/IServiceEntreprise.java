@@ -4,7 +4,11 @@ import java.util.List;
 
 import javax.ejb.Remote;
 
+import eu.telecom_bretagne.cabinet_recrutement.data.model.Candidature;
 import eu.telecom_bretagne.cabinet_recrutement.data.model.Entreprise;
+import eu.telecom_bretagne.cabinet_recrutement.data.model.MessageCand;
+import eu.telecom_bretagne.cabinet_recrutement.data.model.MessageOffre;
+import eu.telecom_bretagne.cabinet_recrutement.data.model.OffreEmploi;
 
 /**
  * Interface du service gérant les entreprises.
@@ -26,5 +30,14 @@ public interface IServiceEntreprise
 	 * @return la liste des candidatures dans une {@code List<Entreprise>}.
 	 */
 	public List<Entreprise> listeDesEntreprises();
+	
+	public Entreprise addEntreprise(Entreprise pentreprise);
+	public List<OffreEmploi> offreEntreprise();
+	public Entreprise updateEntreprise(Entreprise pentreprise);
+	public void removeEntreprise();
+	public void sendMessageApplicant(Candidature cand,String message);
+	public List<MessageOffre> messageRecive();
+	public List<MessageCand> messageSend();
+	
 	//-----------------------------------------------------------------------------
 }
