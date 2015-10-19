@@ -14,5 +14,5 @@ public interface IServiceOffreEmploi {
 	public OffreEmploi getOffreEmploi();
 	public OffreEmploi updateOffreEmploi();
 	public void removeOffreEmploi();
-	coucou
+
 }
