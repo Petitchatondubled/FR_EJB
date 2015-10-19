@@ -11,8 +11,8 @@ public interface IServiceOffreEmploi {
 
 	public OffreEmploi addOffreEmploi(OffreEmploi offre);
 	public List<OffreEmploi> listeOffreEmploi();
-	public OffreEmploi getOffreEmploi();
-	public OffreEmploi updateOffreEmploi();
-	public void removeOffreEmploi();
+	public OffreEmploi getOffreEmploi(int id);
+	public OffreEmploi updateOffreEmploi(OffreEmploi offre);
+	public void removeOffreEmploi(OffreEmploi offre);
 
 }

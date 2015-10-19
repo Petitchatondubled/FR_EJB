@@ -15,9 +15,9 @@ public interface IServiceCandidature {
 	public Candidature addCandidature(Candidature candidature);
 	public List<Candidature> listeCandidature();
 	public Candidature getCandidature(int id);
-	public List<OffreEmploi> offreEmploiByCandidature();
+	public List<OffreEmploi> offreEmploiByCandidature(Candidature candidat);
 	public Candidature updateCandidature(Candidature candidature);
-	public void removeCandidature();
+	public void removeCandidature(Candidature candidature);
 	public MessageCand sendMessageOffre(MessageCand msg);
 	public List<MessageOffre> listeMessageFromEntreprise();
 	public List<MessageCand> listeMessageToEntreprise();

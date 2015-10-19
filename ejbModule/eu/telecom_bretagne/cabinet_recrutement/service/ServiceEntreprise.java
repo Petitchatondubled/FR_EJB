@@ -7,6 +7,8 @@ import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 
 import eu.telecom_bretagne.cabinet_recrutement.data.dao.EntrepriseDAO;
+import eu.telecom_bretagne.cabinet_recrutement.data.dao.MessageOffreDAO;
+import eu.telecom_bretagne.cabinet_recrutement.data.dao.OffreEmploiDAO;
 import eu.telecom_bretagne.cabinet_recrutement.data.model.Candidature;
 import eu.telecom_bretagne.cabinet_recrutement.data.model.Entreprise;
 import eu.telecom_bretagne.cabinet_recrutement.data.model.MessageCand;
@@ -25,6 +27,11 @@ public class ServiceEntreprise implements IServiceEntreprise
 	//-----------------------------------------------------------------------------
 	@EJB
 	private EntrepriseDAO entrepriseDAO;
+	@EJB
+	private OffreEmploiDAO offreEmploiDAO ;
+	@EJB
+	private MessageOffreDAO messageOffreDAO ;
+	
 	//-----------------------------------------------------------------------------
 	/**
 	 * Default constructor.
@@ -45,38 +52,46 @@ public class ServiceEntreprise implements IServiceEntreprise
 	{
 		return entrepriseDAO.findAll();
 	}
+	
 	@Override
 	public Entreprise addEntreprise(Entreprise pentreprise) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return entrepriseDAO.persist(pentreprise);
 	}
+	
 	@Override
-	public List<OffreEmploi> offreEntreprise() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<OffreEmploi> offreEntreprise(int id) {
+			
+		return offreEmploiDAO.getOffreByEntreprise(id);
 	}
+	
 	@Override
 	public Entreprise updateEntreprise(Entreprise pentreprise) {
-		// TODO Auto-generated method stub
+		
+		return entrepriseDAO.update(pentreprise);
+	}
+	
+	@Override
+	public void removeEntreprise(Entreprise entreprise) {
+		
+		entrepriseDAO.remove(entreprise);
+		System.out.println("L'entreprise "+entreprise.getNom()+" est supprimée");
+	}
+	
+	@Override
+	public MessageOffre sendMessageApplicant(MessageOffre msg) {
+		
+		return messageOffreDAO.persist(msg) ;
+	}
+	
+	@Override
+	public List<MessageCand> messageRecive() {
+		
 		return null;
 	}
+	
 	@Override
-	public void removeEntreprise() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void sendMessageApplicant(Candidature cand, String message) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public List<MessageOffre> messageRecive() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public List<MessageCand> messageSend() {
+	public List<MessageOffre> messageSend() {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -32,12 +32,12 @@ public interface IServiceEntreprise
 	public List<Entreprise> listeDesEntreprises();
 	
 	public Entreprise addEntreprise(Entreprise pentreprise);
-	public List<OffreEmploi> offreEntreprise();
+	public List<OffreEmploi> offreEntreprise(int id);
 	public Entreprise updateEntreprise(Entreprise pentreprise);
-	public void removeEntreprise();
-	public void sendMessageApplicant(Candidature cand,String message);
-	public List<MessageOffre> messageRecive();
-	public List<MessageCand> messageSend();
+	public void removeEntreprise(Entreprise pentreprise);
+	public MessageOffre sendMessageApplicant(MessageOffre msg);
+	public List<MessageCand> messageRecive();
+	public List<MessageOffre> messageSend();
 	
 	//-----------------------------------------------------------------------------
 }
